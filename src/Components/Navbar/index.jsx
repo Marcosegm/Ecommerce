@@ -13,36 +13,42 @@ const NavBar = () => {
             to: '/',
             text: 'All',
             className: '',
+            onClick: '',
            
         },
         {
             to: '/clothes',
             text: 'Clothes',
             className: '',
+            onClick: 'clothes',
            
         },
         {
             to: '/electronics',
             text: 'Electronics',
             className: '',
+            onClick: 'electronics',
            
         },
         {
             to: '/furnitures',
             text: 'Furnitures',
             className: '',
+            onClick: 'furnitures',
            
         },
         {
             to: '/toys',
             text: 'Toys',
             className: '',
+            onClick: 'toys',
            
         },
         {
             to: '/others',
             text: 'Others',
             className: '',
+            onClick: 'others',
            
         },
     ]
@@ -75,7 +81,10 @@ const NavBar = () => {
             <ul className="flex items-center gap-3">
 
                 <li className="font-semibold text-lg">
-                    <NavLink to='/'>
+                    <NavLink 
+                    to='/'
+                    onClick={() => context.setSearchByCategory('')}
+                    >
                         Shopi
                     </NavLink>
                 </li>
@@ -88,6 +97,7 @@ const NavBar = () => {
                         <NavLink 
                             to={link.to}
                             className= {({ isActive })=> isActive ? activeStyle : undefined }
+                            onClick={() => context.setSearchByCategory(link.onClick)}
                         >
                             {link.text}
                         </NavLink>
@@ -116,7 +126,7 @@ const NavBar = () => {
                 ))}
                 <li className="flex items-center">
                     <ShoppingBagIcon className="h-6 w-6 text-black"/> 
-                    <div>{context.count}</div>
+                    <div>{context.cartProducts.length}</div>
                 </li>
             </ul>  
         </nav>
