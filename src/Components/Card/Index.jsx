@@ -61,7 +61,7 @@ const Card = (props) => {
                 <img className="w-full h-full object-cover rounded-lg" src={props.data.images[1]} alt={props.data.title}/>
                 {renderIcon(props.data.id)}
             </figure>
-            <p className="flex justify-between">
+            <p className="flex justify-between items-center">
                 <span className="text-sm font-light">{props.data.title}</span>
                 <span className="text-lg font-medium">$ {props.data.price}</span>
             </p>
